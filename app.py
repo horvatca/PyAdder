@@ -1,4 +1,5 @@
 from flask import Flask
+from datetime import datetime
 #from redis import Redis, RedisError
 import os
 import socket
@@ -16,9 +17,16 @@ def hello():
 #        visits = "<i>cannot connect to Redis, counter disabled</i>"
 
     html = "<h3>Hello {name}!</h3>" \
-	   "<b>I hope this ran through DataPower!!<b>" \
-           "<b>Hostname:</b> {hostname}<br/>"
-    return html.format(name=os.getenv("whoBuilt"), hostname=socket.gethostname())
+	   "<b>You have just accessed you containerized Python api.<br>" \
+           "<b>The host container who served this up is:</b> {hostname}<br/>" \
+           "<b>This reply was generated at: </b> {nowtime}<br/>"
+    return html.format(name=os.getenv("whoBuilt"), hostname=socket.gethostname(), \
+                nowtime=datetime.now())
+
+@app.route("/xml")
+def xml():
+    html = "<h3>Wish this was XML!</h3>"
+    return html
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
