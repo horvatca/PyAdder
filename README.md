@@ -8,7 +8,7 @@ sudo docker build -t "pyadder:latest" .
 docker run -it -p 80:80 pyadder:latest
 
 ## Use examples
-### For a GUI, browse to http://localhost:80/PyAder
+### For a GUI, browse to http://localhost:80/PyAdder
 ### For text only replies, browse or curl the following
 For basic response: http://localhost:80/  
 For basic XML repsonse: http://localhost:80/xml  
