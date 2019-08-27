@@ -1,0 +1,10 @@
+#Define what files need to be included in the git repository.
+#Exclude all except those that are needed. Ex: IDE config files should not go.
+
+/*
+!app.py
+!Dockerfile
+!README.md
+!requirements.txt
+!.gitignore
+!.dockerignore

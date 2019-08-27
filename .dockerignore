@@ -1,0 +1,7 @@
+#Define what files need to be included in the container when it is built.
+#Exclude all except those that need to go into the container.
+#This practice reduces container size, as well as reduces the risk of including sensitive information in the container.
+
+*
+!app.py
+!requirements.txt

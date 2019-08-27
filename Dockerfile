@@ -9,11 +9,17 @@ EXPOSE 80
 
 # Define environment variable
 ENV whoBuilt=Chase
-# Copy the current directory contents into the container at /app
-COPY . /app
+
+#speed repeated builds of app code changes by building the requirement (which
+# do not often change) at an earlier layer, thus not repeating the lengthy step every time
+# this greatly decreases build time
+COPY /requirements.txt /app
 
 # Install any needed packages specified in requirements.txt with pyton pip package manager
 RUN pip install -r requirements.txt
+
+# Copy the current directory contents into the container at /app
+COPY . /app
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
