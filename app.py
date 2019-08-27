@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from datetime import datetime
 #from redis import Redis, RedisError
 import os
@@ -25,8 +25,12 @@ def hello():
 
 @app.route("/xml")
 def xml():
-    html = "<h3>Wish this was XML!</h3>"
+    html = "<h3>To do... Wish this was XML!</h3>"
     return html
+
+@app.route("/add")
+def add():
+    return str(int(request.args.get('num1')) + int(request.args.get('num2')))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
