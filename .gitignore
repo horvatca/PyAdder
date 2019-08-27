@@ -1,0 +1,7 @@
+#excluse all except relevant project files
+/*
+!app.py
+!Dockerfile
+!README.md
+!requirements.txt
+!.gitignore
